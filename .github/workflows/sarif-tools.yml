@@ -1,0 +1,22 @@
+name: Sarif tools
+
+on: workflow_dispatch
+
+jobs:
+  runs-on: ubuntu-latest
+  
+  steps:
+  - name: Set up Python
+    uses: actions/setup-python@v2
+    with:
+      python-version: '3.x'
+      
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      python -m pip install sarif-tools
+  
+  - name: SARIF help
+    run: |
+      sarif -h
+  
